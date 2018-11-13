@@ -11,7 +11,7 @@ void  libFiltre:: Enlever_rouge(MyImage image)
 	{
 		image.GetTabPixel()[i].SetRouge(0);
 		
-		
+		int a = 0;
 	}
 
 }
