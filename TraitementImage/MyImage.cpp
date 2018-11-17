@@ -26,23 +26,28 @@ MyImage::MyImage()
 MyImage::MyImage(int a)
 {
 	static constexpr size_t HEADER_SIZE = 54;
-	std::ifstream bmp("lena.bmp", std::ios::binary);
+	std::ifstream bmp("soleil.bmp", std::ios::binary);
 
 	//std::array<char, HEADER_SIZE> header;
 	bmp.read(header.data(), header.size());
+	for (int i = 0; i < 54; i++){
+		cout <<"header"<<i<< ": "<< header[i] <<endl;
+	}
 	auto fileSize = *reinterpret_cast<uint32_t *>(&header[2]);
 	auto dataOffset = *reinterpret_cast<uint32_t *>(&header[10]);
 	width = *reinterpret_cast<uint32_t *>(&header[18]);
 	height = *reinterpret_cast<uint32_t *>(&header[22]);
 	auto depth = *reinterpret_cast<uint16_t *>(&header[28]);
 
+	cout << "file seize: " << fileSize << " dataoffset: " << dataOffset << "width: " << width << "height" << height <<"depth" << depth << endl;
 	std::vector<char> img(dataOffset - HEADER_SIZE);
 	bmp.read(img.data(), img.size());
 
 	auto dataSize = ((width * 3 + 3) & (~3)) * height;
+	
+	dataSize = width * height*3;
 	img.resize(dataSize);
 	bmp.read(img.data(), img.size());
-
 	tabPixel = new Pixel[height*width];
 
 	char temp = 0;
@@ -53,9 +58,9 @@ MyImage::MyImage(int a)
 		temp = img[i];
 		img[i] = img[i + 2];
 		img[i + 2] = temp;
-
+	//	if (i > 420000) { cout << i << "/" << dataSize <<"et compteur : " << compteur << "/140 625"<<  endl; }
 		Pixel nouveauPixel(int(img[i] & 0xff), int(img[i + 1] & 0xff), int(img[i + 2] & 0xff));
-		tabPixel[compteur] = nouveauPixel;
+ 		tabPixel[compteur] = nouveauPixel;
 		compteur++;
 	}
 }
@@ -81,6 +86,16 @@ Pixel* MyImage::GetTabPixel()
 	return tabPixel;
 }
 
+Pixel* MyImage::GetPixel(int i)
+{
+	return &tabPixel[i];
+}
+
+Pixel* MyImage::GetPixel(int i, int j)
+{
+	return &tabPixel[j*width+i];
+}
+
 
 void MyImage::enleverR() {
 
@@ -90,6 +105,7 @@ void MyImage::enleverR() {
 void MyImage::Ecriture_image()
 {
 	int dataSize = (((this->width * 3 + 3) & (~3)) * height);
+	dataSize = width * height * 3;
 	std::vector<char> img2(dataSize);
 
 	int plusplus = 0;

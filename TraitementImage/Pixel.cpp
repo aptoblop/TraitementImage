@@ -9,6 +9,7 @@ Pixel::Pixel()
 	rouge = 0;
 	vert = 0;
 	bleu = 0;
+	gris = 0;
 }
 
 Pixel::Pixel(int rouge, int vert, int bleu) 
@@ -16,6 +17,7 @@ Pixel::Pixel(int rouge, int vert, int bleu)
 	this->rouge = rouge;
 	this->vert = vert;
 	this->bleu = bleu;
+	gris = (rouge + vert + bleu) / 3;
 
 }
 
@@ -55,6 +57,19 @@ void Pixel::SetBleu(int valeur)
 	}
 }
 
+void Pixel::SetAll(int valeur)
+{
+	if (valeur >= 0 && valeur <= 255) {
+		this->rouge = valeur;
+		this->vert= valeur;
+		this->bleu = valeur;
+	}
+	else
+	{
+		cout << "ERREUR valeur bleu du pixel erroné";
+	}
+}
+
 #pragma endregion
 
 
@@ -74,6 +89,11 @@ int* Pixel::GetBleu()
 {
 	return &this->bleu;
 }
+int* Pixel::GetGris()
+{
+	return &this->gris;
+}
+
 #pragma endregion
 
 Pixel::~Pixel()

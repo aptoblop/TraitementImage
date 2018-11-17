@@ -35,6 +35,8 @@ public:
 	int GetWidth();
 	int GetHeight();
 	Pixel* GetTabPixel();
+	Pixel* GetPixel(int i);
+	Pixel* GetPixel(int i, int j);
 
 	void enleverR();
 

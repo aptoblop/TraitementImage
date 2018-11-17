@@ -13,6 +13,7 @@ private:
 	int rouge;
 	int vert;
 	int bleu;
+	int gris;
 
 public:
 	Pixel(int rouge, int vert, int bleu);
@@ -23,6 +24,8 @@ public:
 	int* GetVert();
 	void SetBleu(int valeur);
 	int* GetBleu();
+	int* GetGris();
+	void SetAll(int valeur);
 };
 
 
