@@ -1,4 +1,4 @@
-#ifndef Pixel_H
+#ifndef Pixel_HclTabCtrl
 #define Pixel_H
 
 #pragma once
@@ -16,15 +16,15 @@ private:
 	int gris;
 
 public:
-	Pixel(int rouge, int vert, int bleu);
+	Pixel(int bleu, int vert, int rouge);
 	
 	void SetRouge(int valeur);
-	int* GetRouge();
+	int GetRouge();
 	void SetVert(int valeur);
-	int* GetVert();
+	int GetVert();
 	void SetBleu(int valeur);
-	int* GetBleu();
-	int* GetGris();
+	int GetBleu();
+	int GetGris();
 	void SetAll(int valeur);
 };
 

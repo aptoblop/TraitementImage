@@ -2,9 +2,8 @@
 #define MyImage_H
 
 #pragma once
-#include"pch.h"
 #include "Pixel.h"
-#include <string>
+#include <string.h>
 #include <fstream>
 #include <iostream>
 #include <assert.h>
@@ -25,7 +24,6 @@ private:
 	Pixel* tabPixel;
 	int width;
 	int height;
-	std::array<char, 54> header;
 
 
 public:
@@ -34,9 +32,14 @@ public:
 	int GetTaille();
 	int GetWidth();
 	int GetHeight();
+	int GetDataS();
 	Pixel* GetTabPixel();
 	Pixel* GetPixel(int i);
 	Pixel* GetPixel(int i, int j);
+	//std::array<char, 54> headerWorld;
+	char headerWorld[54];
+	long dataS;
+    int diff;
 
 	void enleverR();
 

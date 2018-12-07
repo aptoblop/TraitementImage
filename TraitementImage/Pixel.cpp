@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "Pixel.h"
 #include <iostream>
 
@@ -12,7 +11,7 @@ Pixel::Pixel()
 	gris = 0;
 }
 
-Pixel::Pixel(int rouge, int vert, int bleu) 
+Pixel::Pixel(int bleu, int vert, int rouge) 
 {
 	this->rouge = rouge;
 	this->vert = vert;
@@ -21,9 +20,6 @@ Pixel::Pixel(int rouge, int vert, int bleu)
 
 }
 
-
-#pragma region set
-
 void Pixel::SetRouge(int valeur)
 {
 	if (valeur >= 0 && valeur <= 255) {
@@ -31,7 +27,7 @@ void Pixel::SetRouge(int valeur)
 	}
 	else
 	{
-		cout << "ERREUR valeur rouge du pixel erroné";
+		cout << "ERREUR valeur rouge du pixel erronÃ©";
 	}
 }
 
@@ -42,7 +38,7 @@ void Pixel::SetVert(int valeur)
 	}
 	else
 	{
-		cout << "ERREUR valeur verte du pixel erroné";
+		cout << "ERREUR valeur verte du pixel erronÃ©";
 	}
 }
 
@@ -53,7 +49,7 @@ void Pixel::SetBleu(int valeur)
 	}
 	else
 	{
-		cout << "ERREUR valeur bleu du pixel erroné";
+		cout << "ERREUR valeur bleu du pixel erronÃ©";
 	}
 }
 
@@ -66,35 +62,29 @@ void Pixel::SetAll(int valeur)
 	}
 	else
 	{
-		cout << "ERREUR valeur bleu du pixel erroné";
+		cout << "ERREUR valeur bleu du pixel erronÃ©";
 	}
 }
 
-#pragma endregion
 
-
-#pragma region get
-
-int* Pixel::GetRouge()
+int Pixel::GetRouge()
 {
-	return &this->rouge;
+	return this->rouge;
 }
 
-int* Pixel::GetVert()
+int Pixel::GetVert()
 {
-	return &this->vert;
+	return this->vert;
 }
 
-int* Pixel::GetBleu()
+int Pixel::GetBleu()
 {
-	return &this->bleu;
+	return this->bleu;
 }
-int* Pixel::GetGris()
+int Pixel::GetGris()
 {
-	return &this->gris;
+	return this->gris;
 }
-
-#pragma endregion
 
 Pixel::~Pixel()
 {
