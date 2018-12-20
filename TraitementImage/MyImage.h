@@ -44,6 +44,7 @@ public:
 	void enleverR();
 
 	void Ecriture_image();
+  
 };
 
 #endif //MyImage_H

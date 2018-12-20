@@ -66,6 +66,11 @@ void Pixel::SetAll(int valeur)
 	}
 }
 
+void Pixel::SetRgb (rgb_t valeur)
+{
+    this->rouge= valeur.red;
+}
+
 
 int Pixel::GetRouge()
 {

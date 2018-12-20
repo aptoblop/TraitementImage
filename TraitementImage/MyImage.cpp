@@ -19,14 +19,14 @@ MyImage::MyImage()
 {
 	width = 0;
 	height = 0;
-	tabPixel = NULL;
+	//tabPixel = NULL;
 	
 }
 
 MyImage::MyImage(int a)
 {
 	static constexpr size_t HEADER_SIZE = 54;
-	std::ifstream bmp("../helloworld.bmp", std::ios::binary);
+	std::ifstream bmp("../tiger.bmp", std::ios::binary);
     
     
 
